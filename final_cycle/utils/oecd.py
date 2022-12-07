@@ -1,0 +1,25 @@
+def findLocal(arr,interval_1,interval_2):
+    ## array length
+    num = len(arr)
+
+    ## empty lists for storage
+    mx = []
+    mn = []
+
+    ## find local maxima and minima
+    for i in range(interval_1 + 1, num - interval_2 + 1):
+        ## local maxima
+        if (arr[i] != arr[i+1] and max(arr[(i - interval_1):i-25]) < arr[i] > max(arr[(i + 20):(i + interval_2 + 1)])
+                               and (arr[i] >  1.009*min(arr[(i - interval_1):(i-20)]))
+
+
+
+
+        ):
+            mx.extend( [i + interval_2 + 1] )
+        ## local minima
+        elif (arr[i] != arr[i+1] and min(arr[(i - interval_1):i-25]) > arr[i] < 0.9999*min(arr[(i + 25):(i + interval_2 + 1)])):
+            mn.extend([i + interval_2 + 1])
+
+
+    return mx, mn
