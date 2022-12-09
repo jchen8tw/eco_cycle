@@ -225,10 +225,7 @@ data1 = pd.read_csv('./data/all_index.csv')
 data1["date"] = pd.to_datetime(data1["date"])
 
 all_cy = pd.DataFrame(all_cy, columns=['all_cy'], index=data1["date"])
-cy_oecd = pd.Series(cy_oecd,index=all_index.index)
-cy_crb = pd.Series(cy_crb,index=all_index.index)
-cy_usg = pd.Series(cy_usg,index=all_index.index)
-all_cy = pd.concat([cy_oecd,cy_crb,cy_usg, all_cy], axis=1)
+all_cy = pd.concat([all_index, all_cy], axis=1)
 all_cy.to_csv('./data/all_cy.csv', sep=',')
 
 print(all_cy)
